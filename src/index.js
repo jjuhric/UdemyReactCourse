@@ -1,30 +1,36 @@
-// Import React and ReactDOM libraries
 import React from 'react';
-import reactDom from 'react-dom';
+import ReactDOM from 'react-dom';
+import faker from 'faker';
+import CommentDetails from './CommentDetails';
 
-function getButtonText() {
-    return "Click on me!";
-}
-// Create a react component
+
 const App = () => {
     return (
-        <div>
-            <label for="name" className="label">Enter Name:</label>
-            <input id="name" type="text" />
-            <button onClick={() => alert("Clicked")} style={{backgroundColor: 'blue', color: 'white'}}>
-                {getButtonText()}
-            </button>
+        <div className="ui container comments">
+            <CommentDetails
+                author="Sam" 
+                timeAgo="Today at 4:45PM" 
+                avatar={faker.image.avatar()} 
+                content="Nice blog post" 
+            />
+            <CommentDetails
+                author="Alex" 
+                timeAgo="Today at 2:00AM" 
+                avatar={faker.image.avatar()} 
+                content="I like the subject" 
+            />
+            <CommentDetails
+                author="Jane" 
+                timeAgo="Yesterday at 5:00PM" 
+                avatar={faker.image.avatar()} 
+                content="I like the writing" 
+            />
         </div>
     );
-}
+};
 
-// Take the react component and show it on the screen
-reactDom.render(
-    <App />,
-    document.querySelector('#root')
-)
+ReactDOM.render(<App />, document.querySelector('#root'));
 
-//code to force hot-reload
-if (module.hot) { 
+if (module.hot) {
     module.hot.accept();
-}
+};
