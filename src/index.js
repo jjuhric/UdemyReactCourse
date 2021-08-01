@@ -25,6 +25,6 @@ reactDom.render(
 )
 
 //code to force hot-reload
-if (module.hot) {
+if (module.hot) { 
     module.hot.accept();
 }
